@@ -1,3 +1,4 @@
+fetchData();
 pageRewrite("onboarding", "onboarding2", "button1")
 pageRewrite("onboarding2", "onboarding3", "button2")
 pageRewrite("onboarding3", "api-test", "button3")
@@ -23,5 +24,3 @@ async function fetchData() {
     document.getElementById("latestBy").innerHTML = record.data[0].latestBy;
     document.getElementById("deathNew").innerHTML = record.data[0].deathNew;
 }
-
-fetchData();

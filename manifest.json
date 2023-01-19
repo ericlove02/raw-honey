@@ -20,10 +20,7 @@
                 "scripts/content.js"
             ],
             "matches": [
-                "https://www.amazon.com/*",
-                "https://en.wikipedia.org/*",
-                "https://developer.chrome.com/docs/extensions/*",
-                "https://developer.chrome.com/docs/webstore/*"
+                "https://en.wikipedia.org/*"
             ]
         }
     ]
