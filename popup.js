@@ -1,6 +1,8 @@
 pageRewrite("onboarding", "onboarding2", "button1")
 pageRewrite("onboarding2", "onboarding3", "button2")
 pageRewrite("onboarding3", "api-test", "button3")
+pageRewrite("api-test", "info1", "button4")
+document.getElementById("close-button").addEventListener("click", () => { window.close(); return; })
 
 function pageRewrite(curr, dest, butt) {
     document.getElementById(butt).addEventListener("click", () => {
