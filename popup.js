@@ -1,5 +1,6 @@
 pageRewrite("onboarding", "onboarding2", "button1")
 pageRewrite("onboarding2", "onboarding3", "button2")
+pageRewrite("onboarding3", "api-test", "button3")
 
 function pageRewrite(curr, dest, butt) {
     document.getElementById(butt).addEventListener("click", () => {
@@ -10,3 +11,15 @@ function pageRewrite(curr, dest, butt) {
         return;
     })
 }
+
+async function fetchData() {
+    const res = await fetch("https://api.coronavirus.data.gov.uk/v1/data");
+    const record = await res.json();
+
+    document.getElementById("date").innerHTML = record.data[0].date;
+    document.getElementById("areaName").innerHTML = record.data[0].areaName;
+    document.getElementById("latestBy").innerHTML = record.data[0].latestBy;
+    document.getElementById("deathNew").innerHTML = record.data[0].deathNew;
+}
+
+fetchData();
