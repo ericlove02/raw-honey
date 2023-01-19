@@ -1,10 +1,10 @@
 * {
-    margin: 0;
+    margin: 10px;
     padding: 0;
 }
 
 body {
-    background-color: #2b3252;
+    background-color: gray;
 }
 
 #textField {
