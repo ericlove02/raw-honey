@@ -16,6 +16,8 @@ const fetchTitles = async () => {
             titles.push(title)
         });
 
+        JsonObject = JSON.parse(JSON.stringify(jsArray));
+
         return titles;
     } catch (error) {
         throw error;
