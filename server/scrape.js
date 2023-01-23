@@ -15,13 +15,10 @@ const fetchTitles = async () => {
             const title = $(el).text()
             titles.push(title)
         });
-
-        JsonObject = JSON.parse(JSON.stringify(jsArray));
-
         return titles;
     } catch (error) {
         throw error;
     }
 };
 
-fetchTitles().then((titles) => console.log(titles));
+fetchTitles().then((info) => document.getElementById("info").innerText = info);
