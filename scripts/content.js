@@ -8,7 +8,12 @@ while (curr = queue.pop()) {
         switch (curr.childNodes[i].nodeType) {
             case Node.TEXT_NODE: // 3
                 if (curr.childNodes[i].textContent.match(word)) {
-                    alert("This page contains monkeys!");
+                    console.log("This page contains monkeys!");
+
+                    var popupHTML = "<div style='position:absolute;top:0;left:0;'>THIS IS A MONKEY</div>";
+                    var stack = document.getElementsByClassName('mw-page-container')[0];
+                    stack.insertAdjacentHTML('beforeend', popupHTML);
+
                     queue = "";
                 }
                 break;
