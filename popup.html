@@ -5,15 +5,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>xxxx</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous">
     </head>
 
     <body>
-        <div id="onboarding" class="">
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" name="fname"><br><br>
+        <div id="onboarding" class="container-md">
+            <div class="input-group">
+                <input type="text" id="fname" name="fname" class="form-control"
+                    placeholder="Recipient's username" aria-label="Recipient's
+                    username" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">@example.com</span>
+            </div>
             <label for="lname">Last name:</label>
             <input type="text" id="lname" name="lname"><br><br>
-            <button id="button1">Next</button>
+            <button id="button1" class="btn btn-primary">Next</button>
         </div>
         <div id="onboarding2" class="hide-div">
             <label for="fname">input 3</label>
@@ -55,8 +64,8 @@
             <p>The extension will now run in the background until it find the
                 word Monkey!</p>
             <button id="close-button1">Close</button>
-            <p>-OR-</p>
-            <button id="button5">I hate monkeys</button>
+            <!-- <p>-OR-</p>
+            <button id="button5">I hate monkeys</button> -->
         </div>
         <div id="info2" class="hide-div">
             Fetching movie titles from reddits instead! One moment...
@@ -65,6 +74,10 @@
             <button id="close-button2">Close</button>
         </div>
         <script src="popup.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
     </body>
 
 </html>

@@ -3,7 +3,7 @@ pageRewrite("onboarding", "onboarding2", "button1")
 pageRewrite("onboarding2", "onboarding3", "button2")
 pageRewrite("onboarding3", "api-test", "button3")
 pageRewrite("api-test", "info1", "button4")
-pageRewrite("info1", "info2", "button5")
+// pageRewrite("info1", "info2", "button5")
 document.getElementById("close-button1").addEventListener("click", () => { window.close(); return; })
 document.getElementById("close-button2").addEventListener("click", () => { window.close(); return; })
 
