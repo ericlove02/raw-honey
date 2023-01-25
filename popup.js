@@ -18,7 +18,7 @@ document.getElementById("close-button1").addEventListener("click", () => {
     getStorage("selected");
     return;
 });
-
+// this is my comment
 
 function getStorage(key) {
     chrome.storage.sync.get(key, function (dataStored) {
