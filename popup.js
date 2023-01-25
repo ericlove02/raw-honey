@@ -10,26 +10,26 @@ document.getElementById("close-button2").addEventListener("click", () => { windo
 
 document.getElementById("button4").addEventListener("click", () => {
     console.log("saving...");
-    setStorage("selected", true);
+    setOnboardingStatus(true);
     return;
 });
 document.getElementById("close-button1").addEventListener("click", () => {
     console.log("getting...");
-    getStorage("selected");
+    getOnboardingStatus("onboardingStatus");
     return;
 });
 
-function getStorage(key) {
-    chrome.storage.sync.get(key, function (dataStored) {
-        if (dataStored["selected"]) {
-            selectedvar = dataStored["selected"];
-            console.log(selectedvar);
+function getOnboardingStatus(key) {
+    chrome.storage.sync.get(key, function (data) {
+        if (data.onboardingStatus) {
+            val = data.onboardingStatus;
+            console.log(Boolean(val));
         }
     });
 }
 
-function setStorage(key, value) {
-    chrome.storage.sync.set({ key: value }, function () {
+function setOnboardingStatus(value) {
+    chrome.storage.sync.set({ "onboardingStatus": value }, function () {
         console.log("Data was saved.");
     });
 }
