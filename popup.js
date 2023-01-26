@@ -1,33 +1,30 @@
-pageRewrite("welcome", "onboarding", "button0")
-document.getElementById("welcome").addEventListener("click", () => {
-    getOnboardingStatus();
-    return;
-});
-async function getOnboardingStatus() {
-    console.log(await getStorage("onboardingStatus"));
+window.onload = async function main() {
+
+    if (await getStorage("onboardingStatus")) {
+        console.log("here");
+        fetchData();
+
+    } else {
+
+        fetchData();
+        pageRewrite("onboarding", "onboarding2", "button1")
+        pageRewrite("onboarding2", "onboarding3", "button2")
+        pageRewrite("onboarding3", "api-test", "button3")
+        pageRewrite("api-test", "info1", "button4")
+
+        // pageRewrite("info1", "info2", "button5")
+        // document.getElementById("close-button1").addEventListener("click", () => { window.close(); return; })
+        document.getElementById("close-button2").addEventListener("click", () => { window.close(); return; })
+
+        document.getElementById("button4").addEventListener("click", () => {
+            console.log("saving...");
+            setOnboardingStatus(true);
+            return;
+        });
+    }
+
 }
 
-if (false) {
-    fetchData();
-    console.log('here')
-} else {
-    console.log("inside of the else")
-    fetchData();
-    pageRewrite("onboarding", "onboarding2", "button1")
-    pageRewrite("onboarding2", "onboarding3", "button2")
-    pageRewrite("onboarding3", "api-test", "button3")
-    pageRewrite("api-test", "info1", "button4")
-
-    // pageRewrite("info1", "info2", "button5")
-    // document.getElementById("close-button1").addEventListener("click", () => { window.close(); return; })
-    document.getElementById("close-button2").addEventListener("click", () => { window.close(); return; })
-
-    document.getElementById("button4").addEventListener("click", () => {
-        console.log("saving...");
-        setOnboardingStatus(true);
-        return;
-    });
-}
 
 const getStorage = async function (key) {
     return new Promise((resolve, reject) => {
