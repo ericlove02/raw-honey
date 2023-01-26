@@ -1,87 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>xxxx</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-            crossorigin="anonymous">
-    </head>
 
-    <body>
-        <div id="welcome" class="">
-            Welcome to raw honey!
-            <button id="button0" class="btn btn-primary">Next</button>
-        </div>
-        <div id="onboarding" class="hide-div container-md">
-            <div class="input-group">
-                <input type="text" id="fname" name="fname" class="form-control"
-                    placeholder="Recipient's username" aria-label="Recipient's
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xxxx</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="welcome" class="">
+        Welcome to raw honey!
+        <button id="button0" class="btn btn-primary">Next</button>
+    </div>
+    <div id="onboarding" class="hide-div container-md">
+        <div class="input-group">
+            <input type="text" id="fname" name="fname" class="form-control" placeholder="Recipient's username"
+                aria-label="Recipient's
                     username" aria-describedby="basic-addon2">
-                <span class="input-group-text" id="basic-addon2">@example.com</span>
-            </div>
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname"><br><br>
-            <button id="button1" class="btn btn-primary">Next</button>
+            <span class="input-group-text" id="basic-addon2">@example.com</span>
         </div>
-        <div id="onboarding2" class="hide-div">
-            <label for="fname">input 3</label>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname">fortnite input</label>
-            <input type="text" id="lname" name="lname"><br><br>
-            <button id="button2">Next</button>
-        </div>
-        <div id="onboarding3" class="hide-div">
-            <label for="fname">Loser?</label>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname">ugly</label>
-            <input type="text" id="lname" name="lname"><br><br>
-            <button id="button3">Next</button>
-        </div>
-        <div id="api-test" class="hide-div">
-            <table class="table table-bordered">
-                <thead>
-                    api table
-                    <tr>
-                        <th>Date</th>
-                        <th>Country</th>
-                        <th>Confirmed</th>
-                        <th>Deaths</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="date"></td>
-                        <td id="areaName"></td>
-                        <td id="latestBy"></td>
-                        <td id="deathNew"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button id="button4">Next</button>
-        </div>
-        <div id="info1" class="hide-div">
-            <p>The extension will now run in the background until it find the
-                word Monkey!</p>
-            <button id="close-button1">Close</button>
-            <!-- <p>-OR-</p>
-            <button id="button5">I hate monkeys</button> -->
-        </div>
-        <div id="info2" class="hide-div">
-            Fetching movie titles from reddits instead! One moment...
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br><br>
+        <button id="button1" class="btn btn-primary">Next</button>
+    </div>
+    <div id="onboarding2" class="hide-div">
+        <label for="fname">input 3</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="lname">fortnite input</label>
+        <input type="text" id="lname" name="lname"><br><br>
+        <button id="button2">Next</button>
+    </div>
+    <div id="onboarding3" class="hide-div">
+        <label for="fname">Loser?</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="lname">ugly</label>
+        <input type="text" id="lname" name="lname"><br><br>
+        <button id="button3">Next</button>
+    </div>
+    <div id="api-test" class="hide-div">
+        <table class="table table-bordered">
+            <thead>
+                api table
+                <tr>
+                    <th>Date</th>
+                    <th>Country</th>
+                    <th>Confirmed</th>
+                    <th>Deaths</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="date"></td>
+                    <td id="areaName"></td>
+                    <td id="latestBy"></td>
+                    <td id="deathNew"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="button4">Next</button>
+    </div>
+    <div id="info1" class="hide-div">
+        <p>The extension will now run in the background until it find the
+            word Monkey!</p>
+        <button id="close-button1">Close</button>
+        <p>-OR-</p>
+        <button id="logout">Log Out</button>
+    </div>
+    <div id="info2" class="hide-div">
+        Fetching movie titles from reddits instead! One moment...
 
-            <p id="movies"></p>
-            <button id="close-button2">Close</button>
-        </div>
-        <script src="popup.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous"></script>
-    </body>
+        <p id="movies"></p>
+        <button id="close-button2">Close</button>
+    </div>
+    <script src="popup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
 
 </html>

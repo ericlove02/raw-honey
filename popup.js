@@ -1,28 +1,35 @@
 window.onload = async function main() {
 
+    // universal event listeners
+    document.getElementById("button4").addEventListener("click", () => {
+        console.log("saving...");
+        setOnboardingStatus(true);
+        return;
+    });
+    document.getElementById("logout").addEventListener("click", () => {
+        console.log("saving...");
+        setOnboardingStatus(false);
+        window.close();
+        return;
+    });
+    document.getElementById("close-button1").addEventListener("click", () => { window.close(); return; })
+    document.getElementById("close-button2").addEventListener("click", () => { window.close(); return; })
+
+    // if user has already onboarded
     if (await getStorage("onboardingStatus")) {
-        console.log("here");
-        fetchData();
+
+        document.getElementById('welcome').classList.add('hide-div');
+        document.getElementById("info1").classList.remove('hide-div');
 
     } else {
 
         fetchData();
+        pageRewrite("welcome", "onboarding", "button0")
         pageRewrite("onboarding", "onboarding2", "button1")
         pageRewrite("onboarding2", "onboarding3", "button2")
         pageRewrite("onboarding3", "api-test", "button3")
         pageRewrite("api-test", "info1", "button4")
-
-        // pageRewrite("info1", "info2", "button5")
-        // document.getElementById("close-button1").addEventListener("click", () => { window.close(); return; })
-        document.getElementById("close-button2").addEventListener("click", () => { window.close(); return; })
-
-        document.getElementById("button4").addEventListener("click", () => {
-            console.log("saving...");
-            setOnboardingStatus(true);
-            return;
-        });
     }
-
 }
 
 
@@ -47,10 +54,8 @@ function setOnboardingStatus(value) {
 
 function pageRewrite(curr, dest, butt) {
     document.getElementById(butt).addEventListener("click", () => {
-        document.getElementById(curr).style.visibility = "none";
-        document.getElementById(curr).style.display = "none";
-        document.getElementById(dest).style.visibility = "visible";
-        document.getElementById(dest).style.display = "block";
+        document.getElementById(curr).classList.add('hide-div');
+        document.getElementById(dest).classList.remove('hide-div');
         return;
     })
 }
