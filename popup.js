@@ -1,12 +1,10 @@
 pageRewrite("welcome", "onboarding", "button0")
 document.getElementById("welcome").addEventListener("click", () => {
-    console.log("getting...");
-    getData();
+    getOnboardingStatus();
     return;
 });
-
-async function getData() {
-    console.log(await getOnboardingStatus());
+async function getOnboardingStatus() {
+    console.log(await getStorage("onboardingStatus"));
 }
 
 if (false) {
@@ -29,19 +27,13 @@ if (false) {
         setOnboardingStatus(true);
         return;
     });
-    document.getElementById("close-button1").addEventListener("click", () => {
-        console.log("getting...");
-        let promise = getOnboardingStatus();
-        promise.then((data) => console.log(data));
-        return;
-    });
 }
 
-const getOnboardingStatus = async function () {
+const getStorage = async function (key) {
     return new Promise((resolve, reject) => {
         try {
-            chrome.storage.sync.get("onboardingStatus", function (value) {
-                resolve(value["onboardingStatus"]);
+            chrome.storage.sync.get(key, function (value) {
+                resolve(value[key]);
             });
         } catch (ex) {
             reject(ex);
