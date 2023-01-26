@@ -21,4 +21,4 @@ const fetchTitles = async () => {
     }
 };
 
-fetchTitles().then((info) => document.getElementById("info").innerText = info);
+fetchTitles().then((info) => console.log(info));
