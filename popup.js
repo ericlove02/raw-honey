@@ -1,36 +1,57 @@
-fetchData();
-pageRewrite("onboarding", "onboarding2", "button1")
-pageRewrite("onboarding2", "onboarding3", "button2")
-pageRewrite("onboarding3", "api-test", "button3")
-pageRewrite("api-test", "info1", "button4")
-// pageRewrite("info1", "info2", "button5")
-// document.getElementById("close-button1").addEventListener("click", () => { window.close(); return; })
-document.getElementById("close-button2").addEventListener("click", () => { window.close(); return; })
-
-
-document.getElementById("button4").addEventListener("click", () => {
-    console.log("saving...");
-    setStorage("selected", true);
-    return;
-});
-document.getElementById("close-button1").addEventListener("click", () => {
+pageRewrite("welcome", "onboarding", "button0")
+document.getElementById("welcome").addEventListener("click", () => {
     console.log("getting...");
-    getStorage("selected");
+    getData();
     return;
 });
 
-function getStorage(key) {
-    chrome.storage.sync.get(key, function (dataStored) {
-        if (dataStored["selected"]) {
-            selectedvar = dataStored["selected"];
-            console.log(selectedvar);
-        }
+async function getData() {
+    console.log(await getOnboardingStatus());
+}
+
+if (false) {
+    fetchData();
+    console.log('here')
+} else {
+    console.log("inside of the else")
+    fetchData();
+    pageRewrite("onboarding", "onboarding2", "button1")
+    pageRewrite("onboarding2", "onboarding3", "button2")
+    pageRewrite("onboarding3", "api-test", "button3")
+    pageRewrite("api-test", "info1", "button4")
+
+    // pageRewrite("info1", "info2", "button5")
+    // document.getElementById("close-button1").addEventListener("click", () => { window.close(); return; })
+    document.getElementById("close-button2").addEventListener("click", () => { window.close(); return; })
+
+    document.getElementById("button4").addEventListener("click", () => {
+        console.log("saving...");
+        setOnboardingStatus(true);
+        return;
+    });
+    document.getElementById("close-button1").addEventListener("click", () => {
+        console.log("getting...");
+        let promise = getOnboardingStatus();
+        promise.then((data) => console.log(data));
+        return;
     });
 }
 
-function setStorage(key, value) {
-    chrome.storage.sync.set({ key: value }, function () {
-        console.log("Data was saved.");
+const getOnboardingStatus = async function () {
+    return new Promise((resolve, reject) => {
+        try {
+            chrome.storage.sync.get("onboardingStatus", function (value) {
+                resolve(value["onboardingStatus"]);
+            });
+        } catch (ex) {
+            reject(ex);
+        }
+    });
+};
+
+function setOnboardingStatus(value) {
+    chrome.storage.sync.set({ "onboardingStatus": value }, function () {
+        console.log("Status saved");
     });
 }
 
