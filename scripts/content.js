@@ -1,3 +1,4 @@
+// word - what to find; queue - what to search
 var word = "monkey",
     queue = [document.body],
     curr
@@ -10,6 +11,7 @@ while (curr = queue.pop()) {
                 if (curr.childNodes[i].textContent.match(word)) {
                     console.log("This page contains monkeys!");
 
+                    // HTML of the popup that will show when the content is found
                     var popupHTML = "<div style='position:absolute;top:0;left:0;'>THIS IS A MONKEY</div>";
                     var stack = document.getElementsByClassName('mw-page-container')[0];
                     stack.insertAdjacentHTML('beforeend', popupHTML);

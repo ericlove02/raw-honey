@@ -1,6 +1,6 @@
 window.onload = async function main() {
 
-    // universal event listeners
+    // add the event listeners to the buttons
     document.getElementById("button4").addEventListener("click", () => {
         console.log("saving...");
         setOnboardingStatus(true);
@@ -14,15 +14,15 @@ window.onload = async function main() {
     });
     document.getElementById("close-button1").addEventListener("click", () => { window.close(); return; })
     document.getElementById("close-button2").addEventListener("click", () => { window.close(); return; })
+    // end of event listeners
 
-    // if user has already onboarded
     if (await getStorage("onboardingStatus")) {
-
-        document.getElementById('welcome').classList.add('hide-div');
-        document.getElementById("info1").classList.remove('hide-div');
+        // if user has already onboarded
+        document.getElementById("welcome").classList.add('hide-div'); // hide welcome div
+        document.getElementById("info1").classList.remove('hide-div'); // show the info div
 
     } else {
-
+        // else the user is a new user
         fetchData();
         pageRewrite("welcome", "onboarding", "button0")
         pageRewrite("onboarding", "onboarding2", "button1")
@@ -32,7 +32,7 @@ window.onload = async function main() {
     }
 }
 
-
+// get data from chrome storage
 const getStorage = async function (key) {
     return new Promise((resolve, reject) => {
         try {
@@ -45,13 +45,14 @@ const getStorage = async function (key) {
     });
 };
 
+// set onboardingStatus chrome storage data
 function setOnboardingStatus(value) {
     chrome.storage.sync.set({ "onboardingStatus": value }, function () {
         console.log("Status saved");
     });
 }
 
-
+// add event listener to button to change from div to div
 function pageRewrite(curr, dest, butt) {
     document.getElementById(butt).addEventListener("click", () => {
         document.getElementById(curr).classList.add('hide-div');
@@ -60,6 +61,7 @@ function pageRewrite(curr, dest, butt) {
     })
 }
 
+// fetch data from api
 async function fetchData() {
     const res = await fetch("https://api.coronavirus.data.gov.uk/v1/data");
     const record = await res.json();
