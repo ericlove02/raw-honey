@@ -20,7 +20,7 @@ window.onload = async function main() {
         // if user has already onboarded
         document.getElementById("welcome").classList.add('hide-div'); // hide welcome div
         document.getElementById("info1").classList.remove('hide-div'); // show the info div
-
+        document.getElementById("total").innerText = await getStorage("grandTotal");
     } else {
         // else the user is a new user
         fetchData();

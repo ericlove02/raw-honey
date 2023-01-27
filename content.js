@@ -19,6 +19,10 @@ while (curr = queue.pop()) {
                         var total = 0;
                     }
 
+                    chrome.storage.sync.set({ "grandTotal": total }, function () {
+                        console.log("Total saved");
+                    });
+
                     let promoCodeInput = document.getElementById('spc-gcpromoinput');
                     promoCodeInput.value = "monkey was here!";
                     let promoCodeButton = document.getElementById('gcApplyButtonId');
